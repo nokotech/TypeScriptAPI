@@ -1,0 +1,29 @@
+{
+  "name": "ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "webpack --watch",
+    "lint": "tslint --format stylish 'src/**/*.ts'",
+    "server": "http-server",
+    "ci": "istanbul cover _mocha -- dest/test/*.test.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "espower-typescript": "^8.1.2",
+    "http-server": "^0.10.0",
+    "istanbul": "^0.4.5",
+    "linq": "^3.0.9",
+    "mocha": "^4.1.0",
+    "power-assert": "^1.4.4",
+    "remap-istanbul": "^0.9.5",
+    "ts-loader": "^3.2.0",
+    "tslint": "^5.8.0",
+    "tslint-config-airbnb": "^5.4.2",
+    "tsutils": "^2.15.0",
+    "webpack": "^3.10.0"
+  }
+}
