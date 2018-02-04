@@ -17,7 +17,7 @@ export default class Utils {
             Pending,
         }
         const decision : Decision = Decision.YES;
-        console.log(`Decision[${decision}] = ${Decision[decision]}`);
+        // console.log(`Decision[${decision}] = ${Decision[decision]}`);
 
         
         class Product {
@@ -39,7 +39,7 @@ export default class Utils {
         productList.forEach(v => {
             v.visible = (v.price > 100);
         });
-        console.info(productList);
+        // console.info(productList);
     }
     
 }

@@ -16,6 +16,7 @@
     "espower-typescript": "^8.1.2",
     "http-server": "^0.10.0",
     "istanbul": "^0.4.5",
+    "linq": "^3.0.9",
     "mocha": "^4.1.0",
     "power-assert": "^1.4.4",
     "remap-istanbul": "^0.9.5",

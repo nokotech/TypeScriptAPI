@@ -1,21 +1,16 @@
-interface Info {
-    no : number;
-    name : string;
-    description : string;
-}
-
-const info: Info = {
-    no: 1,
-    name: 'name',
-    description: 'description',
-};
+import { Info } from '../dataset/Info.ts';
 
 export default class IndexedDBManager {
 
     db : IDBDatabase;
 
     constructor() {
-        this.aaaa();
+        (async () => {
+            const initBool : boolean = await this.initialize();
+            const registBool : boolean = await this.regist({ no: 1, name: 'name', description: 'description' });
+            const val : any = await this.get(1);
+            // console.log(val);
+        })();
         /*
         this.initialize()
         .then((pass : boolean) => this.regist())
@@ -25,15 +20,7 @@ export default class IndexedDBManager {
         */
     }
 
-    async aaaa() {
-        const initBool : boolean = await this.initialize();
-        const registBool : boolean = await this.regist();
-        const val : any = await this.get(1);
-        console.log(val);
-    }
-
     initialize() : Promise<boolean> {
-        console.info('initialize');
         return new Promise((resolve, reject) => {
             if (!window.indexedDB) {
                 window.alert('このブラウザは安定版の IndexedDB をサポートしていません。IndexedDB の機能は利用できません。');
@@ -61,7 +48,7 @@ export default class IndexedDBManager {
     }
 
     // 登録
-    regist(method = 'put') : Promise<boolean>  {
+    regist(info : Info, method = 'put') : Promise<boolean>  {
         return new Promise((resolve, reject) => {
             const trans : IDBTransaction = this.db.transaction('info', 'readwrite');
             const store : IDBObjectStore = trans.objectStore('info');
@@ -94,7 +81,7 @@ export default class IndexedDBManager {
 
     // 処理成功
     successHandler(event : Event) {
-        console.log(`successHandler`, this.db);
+        // console.log(`successHandler`, this.db);
     }
 
     // 処理失敗
